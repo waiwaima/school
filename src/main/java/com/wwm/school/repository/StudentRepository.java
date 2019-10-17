@@ -11,7 +11,7 @@ import java.util.Set;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long>, CustomStudentRepository {
 
-  @Query(value = "SELECT * FROM student WHERE student.id <> " +
+  @Query(value = "SELECT * FROM student WHERE student.id NOT IN " +
           "(SELECT s.id " +
           "FROM student s " +
           "JOIN student_course sc ON s.id = sc.student_id " +
